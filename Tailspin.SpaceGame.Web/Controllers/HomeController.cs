@@ -34,6 +34,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
         {
             // Create the view model with initial values we already know.
             var vm = new LeaderboardViewModel
+        
             {
                 Page = page,
                 PageSize = pageSize,
@@ -105,7 +106,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
 
                 return View(vm);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View(vm);
             }
@@ -119,7 +120,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
                 // Fetch the user profile with the given identifier.
                 return View(new ProfileViewModel { Profile = await _profileRespository.GetItemAsync(id), Rank = rank });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return RedirectToAction("/");
             }
